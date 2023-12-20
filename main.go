@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"rendick/gofetch/cmd/hostname"
+)
 
 func main() {
-	fmt.Println("test")
+	hostname.Hostname()
 }
