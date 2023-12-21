@@ -1,3 +1,3 @@
-module rendick/gofetch
+module gofetch
 
 go 1.21.5
