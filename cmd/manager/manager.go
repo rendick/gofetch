@@ -12,12 +12,11 @@ var (
 )
 
 func Manager() {
-	cmd := exec.Command("sh", "-c", "echo $DESKTOP_SESSION")
-	output, err := cmd.Output()
+	manager, err := exec.Command("sh", "-c", "echo $DESKTOP_SESSION").Output()
 	if err != nil {
 		fmt.Println("Error executing command:", err)
 		os.Exit(1)
 	} else {
-		fmt.Printf(Red+"WM: "+Reset+"%s", output)
+		fmt.Printf(Red+"WM: "+Reset+"%s", manager)
 	}
 }
