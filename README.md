@@ -1,4 +1,4 @@
-# isowrt
+# gofetch
 
 System information tool written in Golang 
 
