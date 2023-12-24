@@ -4,7 +4,7 @@ System information tool written in Golang
 
 # Available OS
 
-**All UNIX systems are supported.**
+GNU/Linux & Android
 
 # Install
 
