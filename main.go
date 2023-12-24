@@ -42,6 +42,7 @@ func main() {
 	} else if strings.TrimSpace(string(check)) == "Android" {
 		fmt.Println("Android")
 		user.User()
+		distro.Distro()
 
 	}
 }
