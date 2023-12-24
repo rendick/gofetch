@@ -2,8 +2,9 @@ package hostname
 
 import (
 	"fmt"
-	"log"
+	"os"
 	"os/exec"
+	"strings"
 )
 
 var (
@@ -12,9 +13,22 @@ var (
 )
 
 func Hostname() {
-	out, err := exec.Command("cat", "/etc/hostname").Output()
-	if err != nil {
-		log.Fatal(err)
+	check_distro, err_distro := exec.Command("uname", "-o").Output()
+	if err_distro != nil {
+		os.Exit(0)
+	} else if strings.TrimSpace(string(check_distro)) == "GNU/Linux" {
+		hostname_linux, err_linux := exec.Command("cat", "/etc/hostname").Output()
+		if err_linux != nil {
+			os.Exit(0)
+		} else {
+			fmt.Printf(Red+"Hostname: "+Reset+"%s", hostname_linux)
+		}
+	} else if strings.TrimSpace(string(check_distro)) == "Android" {
+		hostname_android, err_android := exec.Command("hostname").Output()
+		if err_android != nil {
+			os.Exit(0)
+		} else {
+			fmt.Printf("Hostname: %s", hostname_android)
+		}
 	}
-	fmt.Printf(Red+"Hostname: "+Reset+"%s", out)
 }

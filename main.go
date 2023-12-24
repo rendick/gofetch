@@ -11,7 +11,6 @@ import (
 	"gofetch/cmd/terminal"
 	"gofetch/cmd/uptime"
 	"gofetch/cmd/user"
-	"gofetch/cmd/weather"
 	"os"
 	"os/exec"
 	"strings"
@@ -25,7 +24,7 @@ var (
 func main() {
 	check, err := exec.Command("uname", "-o").Output()
 	if err != nil {
-		os.Exit(1)
+		os.Exit(0)
 	} else if strings.TrimSpace(string(check)) == "GNU/Linux" {
 		fmt.Printf(Red + "GNU/Linux" + Reset + "\n\n")
 
@@ -37,10 +36,11 @@ func main() {
 		cpu.CPU()
 		kernel.Kernel()
 		terminal.Terminal()
-		weather.Weather()
+		// weather.Weather()
 		manager.Manager()
 	} else if strings.TrimSpace(string(check)) == "Android" {
 		fmt.Println("Android")
+
 		user.User()
 		distro.Distro()
 
