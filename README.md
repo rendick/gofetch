@@ -11,7 +11,8 @@ GNU/Linux & Android
 ```bash
 git clone https://github.com/rendick/gofetch.git
 cd gofetch
-go run .
+go build
+./gofetch
 ```
 
 # TODO
