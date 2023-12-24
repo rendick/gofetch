@@ -41,5 +41,7 @@ func main() {
 		manager.Manager()
 	} else if strings.TrimSpace(string(check)) == "Android" {
 		fmt.Println("Android")
+		user.User()
+
 	}
 }
