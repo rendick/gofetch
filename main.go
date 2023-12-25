@@ -26,7 +26,7 @@ func main() {
 	if err != nil {
 		os.Exit(0)
 	} else if strings.TrimSpace(string(check)) == "GNU/Linux" {
-		fmt.Printf(Red + "GNU/Linux" + Reset + "\n\n")
+		fmt.Printf(Red+"%s", string(check)+Reset+"\n")
 
 		user.User()
 		distro.Distro()
@@ -39,7 +39,7 @@ func main() {
 		// weather.Weather()
 		manager.Manager()
 	} else if strings.TrimSpace(string(check)) == "Android" {
-		fmt.Println("Android")
+		fmt.Println(Red+"%s", string(check)+Reset)
 
 		user.User()
 		distro.Distro()
