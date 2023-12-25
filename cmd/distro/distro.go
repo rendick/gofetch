@@ -17,18 +17,19 @@ func Distro() {
 	if err_distro != nil {
 		os.Exit(0)
 	}
-
 	if strings.TrimSpace(string(check_distro)) == "GNU/Linux" {
-		distro_linux, err := exec.Command("lsb_release", "-si").Output()
-		if err != nil {
+		distro_linux, err_linux := exec.Command("lsb_release", "-si").Output()
+		if err_linux != nil {
 			os.Exit(0)
+		} else {
+			fmt.Printf(Red+"Distribution: "+Reset+"%s", distro_linux)
 		}
-		fmt.Printf(Red+"Distribution: "+Reset+"%s", distro_linux)
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		distro_android, err_android := exec.Command("uname", "-o").Output()
 		if err_android != nil {
 			os.Exit(0)
+		} else {
+			fmt.Printf(Red+"Distribution: "+Reset+"%s", distro_android)
 		}
-		fmt.Printf(Red+"Distribution: "+Reset+"%s", distro_android)
 	}
 }

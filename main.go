@@ -44,6 +44,7 @@ func main() {
 		user.User()
 		distro.Distro()
 		cpu.CPU()
+		uptime.Uptime()
 
 	}
 }
