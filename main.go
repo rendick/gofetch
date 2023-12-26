@@ -8,6 +8,8 @@ import (
 	"gofetch/cmd/hostname"
 	"gofetch/cmd/kernel"
 	"gofetch/cmd/manager"
+	"gofetch/cmd/memory"
+	"gofetch/cmd/shell"
 	"gofetch/cmd/terminal"
 	"gofetch/cmd/uptime"
 	"gofetch/cmd/user"
@@ -34,6 +36,8 @@ func main() {
 		uptime.Uptime()
 		display.Display()
 		cpu.CPU()
+		shell.Shell()
+		memory.Memory()
 		kernel.Kernel()
 		terminal.Terminal()
 		// weather.Weather()
@@ -44,7 +48,7 @@ func main() {
 		user.User()
 		distro.Distro()
 		cpu.CPU()
+		shell.Shell()
 		uptime.Uptime()
-
 	}
 }
