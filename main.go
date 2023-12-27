@@ -5,6 +5,7 @@ import (
 	"gofetch/cmd/cpu"
 	"gofetch/cmd/display"
 	"gofetch/cmd/distro"
+	"gofetch/cmd/gpu"
 	"gofetch/cmd/hostname"
 	"gofetch/cmd/kernel"
 	"gofetch/cmd/manager"
@@ -37,6 +38,7 @@ func main() {
 		uptime.Uptime()
 		display.Display()
 		cpu.CPU()
+		gpu.GPU()
 		server.Server()
 		shell.Shell()
 		memory.Memory()
