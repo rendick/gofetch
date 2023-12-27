@@ -6,6 +6,12 @@ System information tool written in Golang
 
 GNU/Linux & Android
 
+# Dependencies
+
+```
+lsb-release, xrandr
+```
+
 # Install
 
 ```bash

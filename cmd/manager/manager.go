@@ -12,7 +12,7 @@ var (
 )
 
 func Manager() {
-	manager, err := exec.Command("sh", "-c", "echo $DESKTOP_SESSION").Output()
+	manager, err := exec.Command("sh", "-c", "echo $XDG_SESSION_DESKTOP").Output()
 	if err != nil {
 		fmt.Println("Error executing command:", err)
 		os.Exit(1)
