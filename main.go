@@ -55,5 +55,7 @@ func main() {
 		server.Server()
 		shell.Shell()
 		uptime.Uptime()
+	} else {
+		os.Exit(0)
 	}
 }
