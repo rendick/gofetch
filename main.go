@@ -47,7 +47,7 @@ func main() {
 		// weather.Weather()
 		manager.Manager()
 	} else if strings.TrimSpace(string(check)) == "Android" {
-		fmt.Printf(Red+"%s", string(check)+Reset)
+		fmt.Printf(Red+"%s", string(check)+Reset+"\n")
 
 		user.User()
 		distro.Distro()
