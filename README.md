@@ -23,6 +23,8 @@ go build
 
 # Functions
 
+### GNU/Linux
+
 ```
 System: *system name* (System: GNU/Linux)
 User: *user* (User: adolf)

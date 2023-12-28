@@ -16,20 +16,31 @@ func Distro() {
 	check_distro, err_distro := exec.Command("uname", "-o").Output()
 	if err_distro != nil {
 		os.Exit(0)
-	}
-	if strings.TrimSpace(string(check_distro)) == "GNU/Linux" {
-		distro_linux, err_linux := exec.Command("lsb_release", "-si").Output()
+	} else if strings.TrimSpace(string(check_distro)) == "GNU/Linux" {
+		distro_linux, err_linux := exec.Command("lsb_release", "-sd").Output()
+		architecture_linux, err_linux_architecture := exec.Command("uname", "-m").Output()
 		if err_linux != nil {
 			os.Exit(0)
+		} else if err_linux_architecture != nil {
+			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"Distribution: "+Reset+"%s", distro_linux)
+			distroLinux := strings.ReplaceAll(string(distro_linux), "\"", "")
+			architectureLinux := strings.ReplaceAll(string(architecture_linux), "\"", "")
+
+			fmt.Printf(Red+"Distribution: "+Reset+"%s%s", strings.Replace(distroLinux, "\n", " ", -1), architectureLinux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		distro_android, err_android := exec.Command("uname", "-o").Output()
+		architecture_android, err_android_architecture := exec.Command("uname", "-m").Output()
 		if err_android != nil {
 			os.Exit(0)
+		} else if err_android_architecture != nil {
+			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"Distribution: "+Reset+"%s", distro_android)
+			distroAndroid := strings.ReplaceAll(string(distro_android), "\"", "")
+			architectureAndroid := strings.ReplaceAll(string(architecture_android), "\"", "")
+
+			fmt.Printf(Red+"Distribution: "+Reset+"%s", strings.Replace(distroAndroid, "\n", " ", -1), architectureAndroid)
 		}
 	}
 }
