@@ -12,6 +12,8 @@ var (
 	Red   = "\033[31m"
 )
 
+var ShellType string
+
 func Shell() {
 	check_distro, err := exec.Command("uname", "-o").Output()
 	if err != nil {
@@ -21,7 +23,7 @@ func Shell() {
 		if err_linux != nil {
 			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"Shell: "+Reset+"%s", shell_linux)
+			ShellType = fmt.Sprintf(Red+"Shell: "+Reset+"%s", shell_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		shell_android, err_android := exec.Command("sh", "-c", "echo $SHELL").Output()
