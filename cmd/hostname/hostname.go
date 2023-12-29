@@ -28,7 +28,7 @@ func Hostname() {
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			fmt.Printf("Hostname: %s", hostname_android)
+			fmt.Printf(Red+"Hostname: "+Reset+"%s", hostname_android)
 		}
 	}
 }
