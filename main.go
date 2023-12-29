@@ -33,17 +33,17 @@ func main() {
 		fmt.Printf(Red+"%s", string(check)+Reset+"\n")
 
 		user.User()
-		kernel.Kernel()
 		distro.Distro()
+		kernel.Kernel()
 		hostname.Hostname()
 		uptime.Uptime()
 		display.Display()
+		terminal.Terminal()
 		cpu.CPU()
 		gpu.GPU()
 		server.Server()
 		shell.Shell()
 		memory.Memory()
-		terminal.Terminal()
 		// weather.Weather()
 		manager.Manager()
 	} else if strings.TrimSpace(string(check)) == "Android" {
@@ -52,10 +52,12 @@ func main() {
 		user.User()
 		distro.Distro()
 		kernel.Kernel()
+		hostname.Hostname()
+		uptime.Uptime()
+		terminal.Terminal()
 		cpu.CPU()
 		server.Server()
 		shell.Shell()
-		uptime.Uptime()
 	} else {
 		os.Exit(0)
 	}
