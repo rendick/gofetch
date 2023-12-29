@@ -16,8 +16,7 @@ func Uptime() {
 	check_distro, err_distro := exec.Command("uname", "-o").Output()
 	if err_distro != nil {
 		os.Exit(0)
-	}
-	if strings.TrimSpace(string(check_distro)) == "GNU/Linux" {
+	} else if strings.TrimSpace(string(check_distro)) == "GNU/Linux" {
 		uptime_linux, err_linux := exec.Command("uptime", "-p").Output()
 		if err_linux != nil {
 			os.Exit(0)
