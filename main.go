@@ -25,7 +25,37 @@ var (
 	Red   = "\033[31m"
 )
 
+var (
+	Logo = ` 
+  __ _  ___   
+ / _  |/ _ \   %s 
+| (_| | (_) |  %s 
+ \__, |\___/   %s 
+ |___/    _    %s 
+ / _| ___| |_  %s
+| |_ / _ \ __|
+|  _|  __/ |_ 
+|_|  \___|\__|
+  ___| |__    
+ / __|  _ \   
+| (__| | | |  
+ \___|_| |_|  
+`
+)
+
 func main() {
+	user.User()
+	distro.Distro()
+	shell.Shell()
+	uptime.Uptime()
+	terminal.Terminal()
+	fmt.Printf(Logo,
+		strings.Replace(user.Username, "\n", " ", -1),
+		strings.Replace(distro.Distribution, "\n", " ", -1),
+		strings.Replace(shell.ShellType, "\n", " ", -1),
+		strings.Replace(uptime.Time, "\n", " ", -1),
+		strings.Replace(terminal.App, "\n", " ", -1))
+
 	check, err := exec.Command("uname", "-o").Output()
 	if err != nil {
 		os.Exit(0)
