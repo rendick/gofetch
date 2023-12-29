@@ -25,10 +25,12 @@ func CPU() {
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		cpu_android, err_android := exec.Command("sh", "-c", "lscpu | grep 'Model name' | cut -f 2 -d ':' | awk '{$1=$1}1'").Output()
+
+		cpuAndroid := strings.ReplaceAll(string(cpu_android), "\"", "")
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"CPU: "+Reset+"%s", cpu_android)
+			fmt.Printf(Red+"CPU: "+Reset+"%s", strings.Replace(cpuAndroid, "\n", " ", -1))
 		}
 	}
 }

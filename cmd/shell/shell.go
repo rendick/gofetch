@@ -16,8 +16,7 @@ func Shell() {
 	check_distro, err := exec.Command("uname", "-o").Output()
 	if err != nil {
 		os.Exit(0)
-	}
-	if strings.TrimSpace(string(check_distro)) == "GNU/Linux" {
+	} else if strings.TrimSpace(string(check_distro)) == "GNU/Linux" {
 		shell_linux, err_linux := exec.Command("sh", "-c", "echo $SHELL").Output()
 		if err_linux != nil {
 			os.Exit(0)
