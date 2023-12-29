@@ -33,6 +33,7 @@ func main() {
 		fmt.Printf(Red+"%s", string(check)+Reset+"\n")
 
 		user.User()
+		kernel.Kernel()
 		distro.Distro()
 		hostname.Hostname()
 		uptime.Uptime()
@@ -42,7 +43,6 @@ func main() {
 		server.Server()
 		shell.Shell()
 		memory.Memory()
-		kernel.Kernel()
 		terminal.Terminal()
 		// weather.Weather()
 		manager.Manager()
@@ -51,6 +51,7 @@ func main() {
 
 		user.User()
 		distro.Distro()
+		kernel.Kernel()
 		cpu.CPU()
 		server.Server()
 		shell.Shell()
