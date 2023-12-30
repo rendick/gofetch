@@ -12,6 +12,8 @@ var (
 	Red   = "\033[31m"
 )
 
+var ServerInfo string
+
 func Server() {
 	check_distro, err_distro := exec.Command("uname", "-o").Output()
 	if err_distro != nil {
@@ -23,7 +25,7 @@ func Server() {
 		if err_linux != nil {
 			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"Server: "+Reset+"%s", server_linux)
+			ServerInfo = fmt.Sprintf(Red+"Server: "+Reset+"%s", server_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		server_android, err_android := exec.Command("sh", "-c", "echo binder").Output()

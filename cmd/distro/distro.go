@@ -12,7 +12,7 @@ var (
 	Red   = "\033[31m"
 )
 
-var Distribution string
+var DistroInfo string
 
 func Distro() {
 	check_distro, err_distro := exec.Command("uname", "-o").Output()
@@ -29,7 +29,7 @@ func Distro() {
 			distroLinux := strings.ReplaceAll(string(distro_linux), "\"", "")
 			architectureLinux := strings.ReplaceAll(string(architecture_linux), "\"", "")
 
-			Distribution = fmt.Sprintf(Red+"Distribution: "+Reset+"%s%s", strings.Replace(distroLinux, "\n", " ", -1), architectureLinux)
+			DistroInfo = fmt.Sprintf(Red+"Distribution: "+Reset+"%s%s", strings.Replace(distroLinux, "\n", " ", -1), architectureLinux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		distro_android, err_android := exec.Command("uname", "-o").Output()

@@ -12,7 +12,7 @@ var (
 	Red   = "\033[31m"
 )
 
-var Time string
+var UptimeInfo string
 
 func Uptime() {
 	check_distro, err_distro := exec.Command("uname", "-o").Output()
@@ -23,7 +23,7 @@ func Uptime() {
 		if err_linux != nil {
 			os.Exit(0)
 		} else {
-			Time = fmt.Sprintf(Red+"Uptime: "+Reset+"%s", uptime_linux)
+			UptimeInfo = fmt.Sprintf(Red+"Uptime: "+Reset+"%s", uptime_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		uptime_android, err_android := exec.Command("uptime", "-p").Output()

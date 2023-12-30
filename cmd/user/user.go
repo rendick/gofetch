@@ -12,7 +12,7 @@ var (
 	Red   = "\033[31m"
 )
 
-var Username string
+var UserInfo string
 
 func User() {
 	check_distro, err_distro := exec.Command("uname", "-o").Output()
@@ -23,14 +23,14 @@ func User() {
 		if err_linux != nil {
 			fmt.Println("User: error")
 		} else {
-			Username = fmt.Sprintf(Red+"User: "+Reset+"%s", user_linux)
+			UserInfo = fmt.Sprintf(Red+"User: "+Reset+"%s", user_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		user_android, err_android := exec.Command("whoami").Output()
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			Username = fmt.Sprintf(Red+"User: "+Reset+"%s", user_android)
+			UserInfo = fmt.Sprintf(Red+"User: "+Reset+"%s", user_android)
 		}
 	} else {
 		os.Exit(0)
