@@ -64,7 +64,7 @@ func main() {
 			strings.Replace(hostname.HostnameInfo, "\n", " ", -1),
 			strings.Replace(distro.DistroInfo, "\n", " ", -1),
 			strings.Replace(kernel.KernelInfo, "\n", " ", -1),
-			strings.Replace(shell.ShellType, "\n", " ", -1),
+			strings.Replace(shell.ShellInfo, "\n", " ", -1),
 			strings.Replace(display.DisplayInfo, "\n", " ", -1),
 			strings.Replace(uptime.UptimeInfo, "\n", " ", -1),
 			strings.Replace(manager.ManagerInfo, "\n", " ", -1),
@@ -86,7 +86,16 @@ func main() {
 		server.Server()
 		shell.Shell()
 		fmt.Printf(Logo,
-			strings.Replace(user.UserInfo, "\n", " ", -1))
+			strings.Replace(user.UserInfo, "\n", " ", -1),
+			strings.Replace(hostname.HostnameInfo, "\n", " ", -1),
+			strings.Replace(distro.DistroInfo, "\n", " ", -1),
+			strings.Replace(kernel.KernelInfo, "\n", " ", -1),
+			strings.Replace(shell.ShellInfo, "\n", " ", -1),
+			strings.Replace(uptime.UptimeInfo, "\n", " ", -1),
+			strings.Replace(terminal.TerminalInfo, "\n", " ", -1),
+			strings.Replace(cpu.CpuInfo, "\n", " ", -1),
+			strings.Replace(server.ServerInfo, "\n", " ", -1),
+			strings.Replace(memory.MemoryInfo, "\n", " ", -1))
 	} else {
 		os.Exit(0)
 	}

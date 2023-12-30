@@ -30,7 +30,7 @@ func Hostname() {
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"Hostname: "+Reset+"%s", hostname_android)
+			HostnameInfo = fmt.Sprintf(Red+"Hostname: "+Reset+"%s", hostname_android)
 		}
 	}
 }

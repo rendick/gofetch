@@ -32,7 +32,7 @@ func CPU() {
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"CPU: "+Reset+"%s", strings.Replace(cpuAndroid, "\n", " ", -1)+"\n")
+			CpuInfo = fmt.Sprintf(Red+"CPU: "+Reset+"%s", strings.Replace(cpuAndroid, "\n", " ", -1)+"\n")
 		}
 	}
 }

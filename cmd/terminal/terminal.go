@@ -30,7 +30,7 @@ func Terminal() {
 		if err_android != nil {
 			fmt.Println("Error! Terminal")
 		} else {
-			fmt.Printf(Red+"Terminal: "+Reset+"%s", terminal_android)
+			TerminalInfo = fmt.Sprintf(Red+"Terminal: "+Reset+"%s", terminal_android)
 		}
 	}
 

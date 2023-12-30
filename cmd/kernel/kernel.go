@@ -31,7 +31,7 @@ func Kernel() {
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"Kernel: "+Reset+"%s", kernel_android)
+			KernelInfo = fmt.Sprintf(Red+"Kernel: "+Reset+"%s", kernel_android)
 		}
 	}
 }

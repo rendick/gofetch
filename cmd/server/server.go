@@ -32,7 +32,7 @@ func Server() {
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"Server: "+Reset+"%s", server_android)
+			ServerInfo = fmt.Sprintf(Red+"Server: "+Reset+"%s", server_android)
 		}
 	}
 }

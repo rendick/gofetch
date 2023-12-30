@@ -42,7 +42,7 @@ func Distro() {
 			distroAndroid := strings.ReplaceAll(string(distro_android), "\"", "")
 			architectureAndroid := strings.ReplaceAll(string(architecture_android), "\"", "")
 
-			fmt.Printf(Red+"Distribution: "+Reset+"%s%s", strings.Replace(distroAndroid, "\n", " ", -1), architectureAndroid)
+			DistroInfo = fmt.Sprintf(Red+"Distribution: "+Reset+"%s%s", strings.Replace(distroAndroid, "\n", " ", -1), architectureAndroid)
 		}
 	}
 }
