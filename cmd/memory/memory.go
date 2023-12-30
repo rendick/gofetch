@@ -11,6 +11,8 @@ var (
 	Red   = "\033[31m"
 )
 
+var MemoryInfo string
+
 func Memory() {
 	in := &syscall.Sysinfo_t{}
 	err := syscall.Sysinfo(in)
@@ -20,5 +22,5 @@ func Memory() {
 
 	total_ram := int64(in.Totalram) / 1024
 	free_ram := int64(in.Freeram) / 1024
-	fmt.Printf(Red+"Memory: "+Reset+"%d MB / %d MB\n", free_ram / 1024, total_ram / 1024)
+	MemoryInfo = fmt.Sprintf(Red+"Memory: "+Reset+"%d MB / %d MB\n", free_ram/1024, total_ram/1024)
 }

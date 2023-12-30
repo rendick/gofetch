@@ -5,7 +5,6 @@ import (
 	"gofetch/cmd/cpu"
 	"gofetch/cmd/display"
 	"gofetch/cmd/distro"
-	"gofetch/cmd/gpu"
 	"gofetch/cmd/hostname"
 	"gofetch/cmd/kernel"
 	"gofetch/cmd/manager"
@@ -44,38 +43,36 @@ var (
 )
 
 func main() {
-	user.User()
-	distro.Distro()
-	shell.Shell()
-	uptime.Uptime()
-	terminal.Terminal()
-	fmt.Printf(Logo,
-		strings.Replace(user.Username, "\n", " ", -1),
-		strings.Replace(distro.Distribution, "\n", " ", -1),
-		strings.Replace(shell.ShellType, "\n", " ", -1),
-		strings.Replace(uptime.Time, "\n", " ", -1),
-		strings.Replace(terminal.App, "\n", " ", -1))
-
 	check, err := exec.Command("uname", "-o").Output()
 	if err != nil {
 		os.Exit(0)
 	} else if strings.TrimSpace(string(check)) == "GNU/Linux" {
-		fmt.Printf(Red+"%s", string(check)+Reset+"\n")
-
 		user.User()
+		hostname.Hostname()
 		distro.Distro()
 		kernel.Kernel()
-		hostname.Hostname()
-		uptime.Uptime()
+		shell.Shell()
 		display.Display()
+		uptime.Uptime()
+		manager.Manager()
 		terminal.Terminal()
 		cpu.CPU()
-		gpu.GPU()
 		server.Server()
-		shell.Shell()
 		memory.Memory()
-		// weather.Weather()
-		manager.Manager()
+		fmt.Printf(Logo,
+			strings.Replace(user.UserInfo, "\n", " ", -1),
+			strings.Replace(hostname.HostnameInfo, "\n", " ", -1),
+			strings.Replace(distro.DistroInfo, "\n", " ", -1),
+			strings.Replace(kernel.KernelInfo, "\n", " ", -1),
+			strings.Replace(shell.ShellType, "\n", " ", -1),
+			strings.Replace(display.DisplayInfo, "\n", " ", -1),
+			strings.Replace(uptime.UptimeInfo, "\n", " ", -1),
+			strings.Replace(manager.ManagerInfo, "\n", " ", -1),
+			strings.Replace(terminal.TerminalInfo, "\n", " ", -1),
+			strings.Replace(cpu.CpuInfo, "\n", " ", -1),
+			strings.Replace(server.ServerInfo, "\n", " ", -1),
+			strings.Replace(memory.MemoryInfo, "\n", " ", -1))
+
 	} else if strings.TrimSpace(string(check)) == "Android" {
 		fmt.Printf(Red+"%s", string(check)+Reset+"\n")
 

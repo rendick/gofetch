@@ -12,6 +12,8 @@ var (
 	Red   = "\033[31m"
 )
 
+var HostnameInfo string
+
 func Hostname() {
 	check_distro, err_distro := exec.Command("uname", "-o").Output()
 	if err_distro != nil {
@@ -21,7 +23,7 @@ func Hostname() {
 		if err_linux != nil {
 			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"Hostname: "+Reset+"%s", hostname_linux)
+			HostnameInfo = fmt.Sprintf(Red+"Hostname: "+Reset+"%s", hostname_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		hostname_android, err_android := exec.Command("hostname").Output()

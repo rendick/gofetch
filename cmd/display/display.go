@@ -10,11 +10,13 @@ var (
 	Red   = "\033[31m"
 )
 
+var DisplayInfo string
+
 func Display() {
 	display, err := exec.Command("bash", "-c", "xrandr | grep '*' | awk '{ print $1 }'").Output()
 	if err != nil {
 		fmt.Println("Error! display")
 	}
-	fmt.Printf(Red+"Display: "+Reset+"%s", display)
+	DisplayInfo = fmt.Sprintf(Red+"Display: "+Reset+"%s", display)
 
 }

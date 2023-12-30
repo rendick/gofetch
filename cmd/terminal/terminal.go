@@ -12,7 +12,7 @@ var (
 	Red   = "\033[31m"
 )
 
-var App string
+var TerminalInfo string
 
 func Terminal() {
 	check_distro, err_distro := exec.Command("uname", "-o").Output()
@@ -23,7 +23,7 @@ func Terminal() {
 		if err_linux != nil {
 			fmt.Println("Error! Terminal")
 		} else {
-			App = fmt.Sprintf(Red+"Terminal: "+Reset+"%s", terminal_linux)
+			TerminalInfo = fmt.Sprintf(Red+"Terminal: "+Reset+"%s", terminal_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		terminal_android, err_android := exec.Command("sh", "-c", "echo $TERM").Output()

@@ -12,6 +12,8 @@ var (
 	Red   = "\033[31m"
 )
 
+var KernelInfo string
+
 func Kernel() {
 	check_distro, err_distro := exec.Command("uname", "-o").Output()
 	if err_distro != nil {
@@ -22,7 +24,7 @@ func Kernel() {
 			os.Exit(0)
 		} else {
 
-			fmt.Printf(Red+"Kernel: "+Reset+"%s", kernel_linux)
+			KernelInfo = fmt.Sprintf(Red+"Kernel: "+Reset+"%s", kernel_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		kernel_android, err_android := exec.Command("uname", "--kernel-release").Output()

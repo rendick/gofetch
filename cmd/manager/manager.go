@@ -11,12 +11,14 @@ var (
 	Red   = "\033[31m"
 )
 
+var ManagerInfo string
+
 func Manager() {
 	manager, err := exec.Command("sh", "-c", "echo $XDG_SESSION_DESKTOP").Output()
 	if err != nil {
 		fmt.Println("Error executing command:", err)
 		os.Exit(1)
 	} else {
-		fmt.Printf(Red+"WM: "+Reset+"%s", manager)
+		ManagerInfo = fmt.Sprintf(Red+"WM: "+Reset+"%s", manager)
 	}
 }
