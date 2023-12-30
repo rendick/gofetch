@@ -101,6 +101,7 @@ func main() {
 		cpu.CPU()
 		server.Server()
 		shell.Shell()
+		memory.Memory()
 		fmt.Printf(Logo_Android,
 			strings.Replace(user.UserInfo, "\n", " ", -1),
 			strings.Replace(hostname.HostnameInfo, "\n", " ", -1),
