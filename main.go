@@ -25,7 +25,7 @@ var (
 )
 
 var (
-	Logo = ` 
+	Logo_Linux = ` 
   __ _  ___   
  / _  |/ _ \   %s 
 | (_| | (_) |  %s 
@@ -39,6 +39,22 @@ var (
  / __|  _ \    %s
 | (__| | | |   %s 
  \___|_| |_|   %s 
+`
+
+	Logo_Android = ` 
+  __ _  ___   
+ / _  |/ _ \    
+| (_| | (_) |  %s 
+ \__, |\___/   %s 
+ |___/    _    %s 
+ / _| ___| |_  %s
+| |_ / _ \ __| %s
+|  _|  __/ |_  %s
+|_|  \___|\__| %s
+  ___| |__     %s 
+ / __|  _ \    %s
+| (__| | | |   %s 
+ \___|_| |_|    
 `
 )
 
@@ -59,7 +75,7 @@ func main() {
 		cpu.CPU()
 		server.Server()
 		memory.Memory()
-		fmt.Printf(Logo,
+		fmt.Printf(Logo_Linux,
 			strings.Replace(user.UserInfo, "\n", " ", -1),
 			strings.Replace(hostname.HostnameInfo, "\n", " ", -1),
 			strings.Replace(distro.DistroInfo, "\n", " ", -1),
@@ -85,7 +101,7 @@ func main() {
 		cpu.CPU()
 		server.Server()
 		shell.Shell()
-		fmt.Printf(Logo,
+		fmt.Printf(Logo_Android,
 			strings.Replace(user.UserInfo, "\n", " ", -1),
 			strings.Replace(hostname.HostnameInfo, "\n", " ", -1),
 			strings.Replace(distro.DistroInfo, "\n", " ", -1),
