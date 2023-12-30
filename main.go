@@ -85,6 +85,8 @@ func main() {
 		cpu.CPU()
 		server.Server()
 		shell.Shell()
+		fmt.Printf(Logo,
+			strings.Replace(user.UserInfo, "\n", " ", -1))
 	} else {
 		os.Exit(0)
 	}
