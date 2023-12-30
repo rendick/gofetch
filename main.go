@@ -24,40 +24,6 @@ var (
 	Red   = "\033[31m"
 )
 
-var (
-	Logo_Linux = ` 
-  __ _  ___   
- / _  |/ _ \   %s 
-| (_| | (_) |  %s 
- \__, |\___/   %s 
- |___/    _    %s 
- / _| ___| |_  %s
-| |_ / _ \ __| %s
-|  _|  __/ |_  %s
-|_|  \___|\__| %s
-  ___| |__     %s 
- / __|  _ \    %s
-| (__| | | |   %s 
- \___|_| |_|   %s 
-`
-
-	Logo_Android = ` 
-  __ _  ___   
- / _  |/ _ \   %s 
-| (_| | (_) |  %s 
- \__, |\___/   %s 
- |___/    _    %s 
- / _| ___| |_  
-| |_ / _ \ __| %s
-|  _|  __/ |_  %s
-|_|  \___|\__| 
-  ___| |__     %s 
- / __|  _ \    %s
-| (__| | | |   %s 
- \___|_| |_|   %s
-`
-)
-
 func main() {
 	check, err := exec.Command("uname", "-o").Output()
 	if err != nil {
@@ -88,10 +54,7 @@ func main() {
 			strings.Replace(cpu.CpuInfo, "\n", " ", -1),
 			strings.Replace(server.ServerInfo, "\n", " ", -1),
 			strings.Replace(memory.MemoryInfo, "\n", " ", -1))
-
 	} else if strings.TrimSpace(string(check)) == "Android" {
-		fmt.Printf(Red+"%s", string(check)+Reset+"\n")
-
 		user.User()
 		distro.Distro()
 		kernel.Kernel()
