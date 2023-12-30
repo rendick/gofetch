@@ -30,7 +30,7 @@ func Uptime() {
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			fmt.Printf(Red+"Uptime: "+Reset+"%s", uptime_android)
+			UptimeInfo = fmt.Sprintf(Red+"Uptime: "+Reset+"%s", uptime_android)
 		}
 	}
 }
