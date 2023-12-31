@@ -41,7 +41,7 @@ func main() {
 		cpu.CPU()
 		server.Server()
 		memory.Memory()
-		fmt.Printf(Logo_Linux,
+		fmt.Printf(Red+Logo_Linux+Reset,
 			strings.Replace(user.UserInfo, "\n", " ", -1),
 			strings.Replace(hostname.HostnameInfo, "\n", " ", -1),
 			strings.Replace(distro.DistroInfo, "\n", " ", -1),
