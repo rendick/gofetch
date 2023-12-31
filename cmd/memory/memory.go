@@ -36,8 +36,6 @@ func Memory() {
 	if err_convert_total != nil {
 		panic(err_total)
 	}
-	fmt.Printf("%d and %T", total, total)
-	fmt.Printf("%d and %T %d", avail, avail, (total-avail)/1024)
 
 	MemoryInfo = fmt.Sprintf(Red+"Memory: "+Reset+"%d MB / %d MB", (total-avail)/1024, total/1024)
 }
