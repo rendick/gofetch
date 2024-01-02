@@ -8,8 +8,9 @@ import (
 )
 
 var (
-	Reset = "\033[0m"
 	Red   = "\033[31m"
+	Bold  = "\033[1m"
+	Reset = "\033[0m"
 )
 
 var ShellInfo string
@@ -23,14 +24,14 @@ func Shell() {
 		if err_linux != nil {
 			os.Exit(0)
 		} else {
-			ShellInfo = fmt.Sprintf(Red+"Shell: "+Reset+"%s", shell_linux)
+			ShellInfo = fmt.Sprintf(Red+Bold+"Shell: "+Reset+"%s", shell_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		shell_android, err_android := exec.Command("sh", "-c", "echo $SHELL").Output()
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			ShellInfo = fmt.Sprintf(Red+"Shell: "+Reset+"%s", shell_android)
+			ShellInfo = fmt.Sprintf(Red+Bold+"Shell: "+Reset+"%s", shell_android)
 		}
 
 	}

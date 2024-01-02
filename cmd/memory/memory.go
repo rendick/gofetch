@@ -9,8 +9,9 @@ import (
 )
 
 var (
-	Reset = "\033[0m"
 	Red   = "\033[31m"
+	Bold  = "\033[1m"
+	Reset = "\033[0m"
 )
 
 var MemoryInfo string
@@ -42,7 +43,8 @@ func Memory() {
 			panic(err_total)
 		}
 
-		MemoryInfo = fmt.Sprintf(Red+"Memory: "+Reset+"%d MB / %d MB", (total-avail)/1024, total/1024)
+		MemoryInfo = fmt.Sprintf(Red+Bold+"Memory: "+Reset+"%d MB / %d MB", (total-avail)/1024, total/1024)
+
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		avail_memory_android, err_avail_android := exec.Command("sh", "-c", "cat /proc/meminfo | grep 'MemAvailable:' | awk '{print $2}'").Output()
 		if err_avail_android != nil {
@@ -64,7 +66,7 @@ func Memory() {
 		if err_convert_total != nil {
 			panic(err_total_android)
 		}
-		MemoryInfo = fmt.Sprintf(Red+"Memory: "+Reset+"%d MB / %d MB", (total_android-avail_android)/1024, total_android/1024)
+		MemoryInfo = fmt.Sprintf(Red+Bold+"Memory: "+Reset+"%d MB / %d MB", (total_android-avail_android)/1024, total_android/1024)
 
 	}
 }

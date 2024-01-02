@@ -8,8 +8,9 @@ import (
 )
 
 var (
-	Reset = "\033[0m"
 	Red   = "\033[31m"
+	Bold  = "\033[1m"
+	Reset = "\033[0m"
 )
 
 var KernelInfo string
@@ -24,14 +25,14 @@ func Kernel() {
 			os.Exit(0)
 		} else {
 
-			KernelInfo = fmt.Sprintf(Red+"Kernel: "+Reset+"%s", kernel_linux)
+			KernelInfo = fmt.Sprintf(Red+Bold+"Kernel: "+Reset+"%s", kernel_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		kernel_android, err_android := exec.Command("uname", "--kernel-release").Output()
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			KernelInfo = fmt.Sprintf(Red+"Kernel: "+Reset+"%s", kernel_android)
+			KernelInfo = fmt.Sprintf(Red+Bold+"Kernel: "+Reset+"%s", kernel_android)
 		}
 	}
 }

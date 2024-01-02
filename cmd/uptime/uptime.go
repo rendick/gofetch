@@ -8,8 +8,9 @@ import (
 )
 
 var (
-	Reset = "\033[0m"
 	Red   = "\033[31m"
+	Bold  = "\033[1m"
+	Reset = "\033[0m"
 )
 
 var UptimeInfo string
@@ -23,14 +24,14 @@ func Uptime() {
 		if err_linux != nil {
 			os.Exit(0)
 		} else {
-			UptimeInfo = fmt.Sprintf(Red+"Uptime: "+Reset+"%s", uptime_linux)
+			UptimeInfo = fmt.Sprintf(Red+Bold+"Uptime: "+Reset+"%s", uptime_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		uptime_android, err_android := exec.Command("uptime", "-p").Output()
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			UptimeInfo = fmt.Sprintf(Red+"Uptime: "+Reset+"%s", uptime_android)
+			UptimeInfo = fmt.Sprintf(Red+Bold+"Uptime: "+Reset+"%s", uptime_android)
 		}
 	}
 }
