@@ -8,8 +8,9 @@ import (
 )
 
 var (
-	Reset = "\033[0m"
 	Red   = "\033[31m"
+	Bold  = "\033[1m"
+	Reset = "\033[0m"
 )
 
 var HostnameInfo string
@@ -23,14 +24,14 @@ func Hostname() {
 		if err_linux != nil {
 			os.Exit(0)
 		} else {
-			HostnameInfo = fmt.Sprintf(Red+"Hostname: "+Reset+"%s", hostname_linux)
+			HostnameInfo = fmt.Sprintf(Red+Bold+"Hostname: "+Reset+"%s", hostname_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		hostname_android, err_android := exec.Command("hostname").Output()
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			HostnameInfo = fmt.Sprintf(Red+"Hostname: "+Reset+"%s", hostname_android)
+			HostnameInfo = fmt.Sprintf(Red+Bold+"Hostname: "+Reset+"%s", hostname_android)
 		}
 	}
 }

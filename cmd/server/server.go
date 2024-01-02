@@ -8,8 +8,9 @@ import (
 )
 
 var (
-	Reset = "\033[0m"
 	Red   = "\033[31m"
+	Bold  = "\033[1m"
+	Reset = "\033[0m"
 )
 
 var ServerInfo string
@@ -25,14 +26,14 @@ func Server() {
 		if err_linux != nil {
 			os.Exit(0)
 		} else {
-			ServerInfo = fmt.Sprintf(Red+"Server: "+Reset+"%s", server_linux)
+			ServerInfo = fmt.Sprintf(Red+Bold+"Server: "+Reset+"%s", server_linux)
 		}
 	} else if strings.TrimSpace(string(check_distro)) == "Android" {
 		server_android, err_android := exec.Command("sh", "-c", "echo binder").Output()
 		if err_android != nil {
 			os.Exit(0)
 		} else {
-			ServerInfo = fmt.Sprintf(Red+"Server: "+Reset+"%s", server_android)
+			ServerInfo = fmt.Sprintf(Red+Bold+"Server: "+Reset+"%s", server_android)
 		}
 	}
 }
