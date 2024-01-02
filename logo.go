@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 var (
 	Logo_Linux = ` 
   __ _  ___   
@@ -33,3 +35,8 @@ var (
  \___|_| |_|   %s
 `
 )
+
+func man() {
+	fmt.Printf(Red + Logo_Linux + Reset)
+
+}

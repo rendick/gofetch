@@ -42,7 +42,7 @@ func main() {
 		cpu.CPU()
 		server.Server()
 		memory.Memory()
-		fmt.Printf(Red+Logo_Linux+Reset,
+		fmt.Printf(Logo_Linux,
 			strings.Replace(user.UserInfo, "\n", " ", -1),
 			strings.Replace(hostname.HostnameInfo, "\n", " ", -1),
 			strings.Replace(distro.DistroInfo, "\n", " ", -1),
@@ -54,7 +54,7 @@ func main() {
 			strings.Replace(terminal.TerminalInfo, "\n", " ", -1),
 			strings.Replace(cpu.CpuInfo, "\n", " ", -1),
 			strings.Replace(server.ServerInfo, "\n", " ", -1),
-			strings.Replace(memory.MemoryInfo, "\n", " ", -1))
+			strings.Replace(memory.MemoryInfo, "\n", " ", -1)+Reset+"\n\n")
 	} else if strings.TrimSpace(string(check)) == "Android" {
 		user.User()
 		distro.Distro()
@@ -77,6 +77,7 @@ func main() {
 			strings.Replace(cpu.CpuInfo, "\n", " ", -1),
 			strings.Replace(server.ServerInfo, "\n", " ", -1),
 			strings.Replace(memory.MemoryInfo, "\n", " ", -1))
+		fmt.Println("e")
 	} else {
 		os.Exit(0)
 	}
