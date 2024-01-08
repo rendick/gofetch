@@ -17,8 +17,7 @@ lsb-release, xrandr
 ```bash
 git clone https://github.com/rendick/gofetch.git
 cd gofetch
-go build
-./gofetch
+sh install.sh
 ```
 
 # Functions
