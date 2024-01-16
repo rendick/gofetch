@@ -1,5 +1,4 @@
 #!/bin/bash
-
 copy () {
 	chmod +x gofetch
 	if [[ $1 == "yes" ]] ; then
@@ -15,7 +14,7 @@ copy () {
 PS3='Installation type: '
 types=("yes" "no")
 
-echo
+echo "Note, that you need to install xrands and lsb-release!"
 
 select type in "${types[@]}" ; do
 	if [[ -n $types ]] ; then
